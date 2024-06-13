@@ -1,0 +1,8 @@
+path: ./welding  # dataset root dir
+train: ./images/train/
+val: ./images/valid/
+test: ./images/test/
+
+nc: 3
+names: ['Defect', 'Welding Line', 'Workpiece']
+
