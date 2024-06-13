@@ -44,11 +44,10 @@ except Exception as ex:
 
 st.sidebar.header("Изображения")
 
-demo_files = [os.path.join(settings.IMAGES_DIR, f) for f in os.listdir(settings.IMAGES_DIR) if 
-    os.path.isfile(os.path.join(settings.IMAGES_DIR, f))]
+demo_files = sorted([os.path.join(settings.IMAGES_DIR, f) for f in os.listdir(settings.IMAGES_DIR) if 
+    os.path.isfile(os.path.join(settings.IMAGES_DIR, f))])
     
 demo_files_cnt = int(st.sidebar.slider("Количество демо-файлов", 1, len(demo_files), 1)) 
-st.write('demo_files_cnt:', demo_files_cnt)
 
 source_imgs = None
 # If image is selected
