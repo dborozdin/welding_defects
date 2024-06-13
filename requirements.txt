@@ -1,4 +1,5 @@
 pillow
 streamlit
+opencv-python
 ultralytics==8.2.31
 
