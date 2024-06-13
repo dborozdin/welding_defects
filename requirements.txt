@@ -1,4 +1,4 @@
 pillow
 streamlit
-ultralitics
+ultralytics==8.1.30
 
