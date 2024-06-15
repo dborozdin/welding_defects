@@ -79,7 +79,6 @@ with col1:
 with col2:
     for uploaded_image in uploaded_images:
         res = model.predict(uploaded_image,
-                            classes=[0],
                             conf=confidence
                             )
         boxes = res[0].boxes
