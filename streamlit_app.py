@@ -82,10 +82,44 @@ with col2:
                             conf=confidence
                             )
         boxes = res[0].boxes
+
+        class_ids = boxes.cls
+        classes_cnt=[]
+        for cl in class_ids:
+            object_name = model.names[int(cl)]
+            
+            found= False
+            for obj in classes_cnt:
+                if obj['id']==object_name:
+                    obj['count']= obj['count']+1
+                    found=True
+                    break
+            if found==False:
+                element= {"id":object_name, "count":1}
+                classes_cnt.append(element)
+                    
         res_plotted = res[0].plot()[:, :, ::-1]
         caption= 'Дефектов не обнаружено'
         if len(boxes)>0:
-            caption=f'Обнаружено дефектов: {str(len(boxes))}'
+            defects_descr=''
+            for cl in classes_cnt:
+                if len(defects_descr)>0:
+                    defects_descr= defects_descr+', '
+                defect_name= cl['id']
+                if defect_name=='adj':
+                    defect_name='прилегающие(adj)'
+                elif defect_name=='int':
+                    defect_name='целостности (int)'
+                elif defect_name=='geo':
+                    defect_name='геометрии(geo)'
+                elif defect_name=='pro':
+                    defect_name='постобработки(pro)'
+                elif defect_name=='non':
+                    defect_name='невыполнения(non)'
+                else: 
+                    defect_name='дефект неизвестного типа'
+                defects_descr= defects_descr+ defect_name +': '+str(cl['count'])
+            caption=f'Обнаружено дефектов: {str(len(boxes))}. В том числе дефекты {defects_descr}'
         st.image(res_plotted, caption= caption,
                  use_column_width=True)
 

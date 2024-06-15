@@ -16,5 +16,5 @@ IMAGES_DIR = ROOT / 'images'
 
 # ML Model config
 MODEL_DIR = ROOT / 'weights'
-DETECTION_MODEL = MODEL_DIR / 'welding-multi.pt'
+DETECTION_MODEL = MODEL_DIR / 'welding-multi100.pt'
 
