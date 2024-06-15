@@ -1,5 +1,5 @@
 Определение дефектов сварных швов с использованием компьютерного зрения.
 
-Разработано на основе модели Yolov8, обученной на датасете https://universe.roboflow.com/final-year-project-kswbt/welding-defect-detection
+Разработано на основе модели Yolov8, обученной на датасете atomichack 2024 (задача 2, определение дефектов сварки)
 
 Развернуто на https://weldingdefects.streamlit.app/
